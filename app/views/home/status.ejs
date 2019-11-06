@@ -1,0 +1,30 @@
+<div class="row">
+<% if(sistema != undefined){ %>
+  <% for(var i=0; i < sistema.length; i++){  %>
+    <div class="col-12 col-lg-6 col-xl-3">
+    <div class="widget widget-tile">
+      <div class="chart sparkline">
+      <% if(sistema[i].opt_ativo == 1){ %>
+        <i class="fa fa-thumbs-up indicator-positive" style="font-size: 40px; color: #34a853" ></i>
+      <% }else if(sistema[i].opt_ativo == 2){ %>
+        <i class="fa fa-hourglass-half indicator-negative" style="font-size: 40px; color: #f0ad4e" ></i>
+      <% }else{ %>
+        <i class="fa fa-hand-paper indicator-negative" style="font-size: 40px; color: #ea4335" ></i>
+      <% } %>
+      </div>
+      <div class="data-info">
+      <% if(sistema[i].opt_ativo == 1){ %>
+        <div class="desc">executando</div>
+      <% }else if(sistema[i].opt_ativo == 2){ %>
+        <div class="desc">apresenta lentidão</div>
+      <% }else{ %>
+        <div class="desc">parado</div>
+      <% } %>
+      <div class="value"><%= sistema[i].des_nomesistema %></div>
+      </div>
+    </div>
+    </div>
+  <% } %>
+<% } %>
+  
+</div>

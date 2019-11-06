@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Status dos sistemas - Toyopar</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/fontawesome.all.min.css">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+			
+			function refreshStatus(){
+				//console.log("refreshStatus");
+			    $.ajax({
+					url: '/status',
+					method: "get",
+					success: function(data){
+						$( '#status' ).html(data);
+					}
+				});
+			}
+
+			function refreshMessages(){
+				//console.log("refreshMessage");
+				$.ajax({
+					url: '/messages',
+					method: "get",
+					success: function(data){
+						$( '#msg' ).html(data);
+					}
+				});
+
+			}
+
+			function refreshHour(){
+				//console.log("refreshMessage");
+				$.ajax({
+					url: '/hour',
+					method: "get",
+					success: function(data){
+						$( '#update' ).html(data);
+					}
+				});
+
+			}
+
+			$(document).ready( function(){
+				/* Status */
+				refreshStatus();
+				refreshHour();
+				setInterval(function(){
+				    refreshStatus();
+				    refreshHour();
+				}, 15000);
+
+				/* Messages */
+				refreshMessages();
+				setInterval(function(){
+				    refreshMessages();
+				    refreshHour();
+				}, 50000);
+
+			});
+		</script>
+	</head>
+	<body  id="LoginForm">
+		<!--<main class="content">-->
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h1 class="tittle-white">Status dos sistemas - Toyopar</h1>
+					</div>
+
+					<!-- Quadrinhos de Status -->
+					<div id="status"></div>
+
+					<!-- Mensagens -->
+					<div id="msg"></div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<!-- Hora -->
+						<div id="update" class="text-center"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

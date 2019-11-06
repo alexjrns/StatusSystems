@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Configurar Status dos sistemas - Toyopar</title>
+
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/app.css">
+		<link rel="stylesheet" href="../css/tooggle.css">
+		<link rel="stylesheet" href="../css/fontawesome.all.min.css">
+		<link rel="stylesheet" href="../css/mdb.min.css">
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/mdb.min.js"></script>
+
+		<script>
+			$(document).ready( function(){
+				$( ".check" ).each(function( index ) {
+  					val = $.trim($( this ).parents().children().children().html());
+  					$(this).attr('name', val);
+				});
+
+				$( "#send" ).click(function() {
+					$( ".check" ).each(function( index ) {
+	  					if($(this).is(':checked')){
+	  						$( this ).parents().next().get( 0 ).remove();
+	  					}
+					});
+				});
+			});
+
+
+		</script>
+	</head>
+	<body>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb"  style="background-color: rgba(0, 0, 0, 0.1);">
+            <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item"><a href="/home">Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Configurar status</li>
+            <li class="breadcrumb-item direita"><a href="/sair">Sair</a></li>
+          </ol>
+        </nav>
+		<main>
+			<div class="container">
+				<div class="form-group">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h1>Configurar status dos sistemas - Toyopar</h1>
+					</div>
+				</div>
+				<div class="row">
+					<% if(systems != undefined){ %>
+						<% for(var i=0; i < systems.length; i++){  %>
+
+							<div class="col-12 col-lg-6 col-xl-3">
+
+								<div class="widget">
+		                          <div class="data-info">
+		                            <div class="value"><%= systems[i].des_nomesistema %></div>
+		                          </div>
+									<select name="temp" form="forme" class="check form-control">
+									  <option value="0">Parado</option>
+									  <option selected="selected" value="1">Funcionando</option>
+									  <option value="2">Lentidão</option>
+									</select>
+		                        </div>
+							</div>
+						<% } %>
+
+					<% } %>
+				</div>
+				<form id="forme" action="/home/savestatus" method="post">
+					<div class="row ">
+						<div class="col-12 col-lg-12 col-xl-12 text-center">
+							<input type="submit" id="send" value="Salvar" class="btn btn-outline-primary waves-effect">
+						</div>
+					</div>
+				</form>
+			</div>
+		</main>	
+	</body>
+</html>

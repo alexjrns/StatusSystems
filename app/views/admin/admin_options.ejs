@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+        <title>Admin - Status dos sistemas - Toyopar</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/tooggle.css">
+        <link rel="stylesheet" href="css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="css/mdb.min.css">
+        <script src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb"  style="background-color: rgba(0, 0, 0, 0.1);">
+            <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Admin</li>
+            <li class="breadcrumb-item direita"><a href="/sair">Sair</a></li>
+          </ol>
+        </nav>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1>Selecione uma opção abaixo</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <!--
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/home/configstatus">Configurar Status</a></li>
+                            <li class="breadcrumb-item"><a href="/home/addmessage">Cadastrar nova mensagem</a></li>
+                            <li class="breadcrumb-item"><a href="/home/addsystem">Cadastrar novo sistema</a></li>
+                        </ol>
+
+                        <button class="btn peach-gradient">Configurar Status</button>
+                        <button class="btn purple-gradient">Cadastrar Nova Mensagem</button>
+                        <button class="btn blue-gradient">Cadastrar Novo Sistema</button>
+                        -->
+                        <a href="/home/configstatus" class="btn blue-gradient" role="button">Configurar Status</a>
+                        <a href="/home/addmessage" class="btn blue-gradient" role="button">Cadastrar Nova Mensagem</a>
+                        <a href="/home/addsystem" class="btn blue-gradient" role="button">Cadastrar Novo Sistema</a>
+                        <a href="/home/disabledmessage" class="btn blue-gradient" role="button">Desativar Mensagem</a>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+	</body>
+</html>
